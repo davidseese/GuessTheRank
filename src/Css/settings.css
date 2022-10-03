@@ -1,0 +1,169 @@
+.set-con{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rem;
+}
+.set-div{
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    flex-direction: column;
+    width: 400px;
+    height: 470px;
+    background-color: #162332;
+    border-radius: 20px;
+}
+.round-label{
+    background-color: transparent;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    text-align: center;
+    color: #ECE8E1;
+    padding-right: 10px;
+}
+.set-round{
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    margin-top: 20px;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+.rounds-input{
+    background: rgba(11, 18, 26, .61);
+    border-radius: 20px;
+    border-width: 0;
+    width: 60px;
+    height: 40px;
+}
+.submit-h{
+    margin-top: 40px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 48px;
+        background-color: transparent;
+        color: #ECE8E1;
+}
+.rounds-change{
+    cursor:pointer;
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+}
+.minus-img{
+    background-color: transparent;
+    width: 30px;
+}
+.plus-img {
+    background-color: transparent;
+    width: 30px;
+    
+}
+.rounds-txt{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    background-color: transparent;
+    color: #ECE8E1;
+}
+.minus-img-con{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(11, 18, 26, .61);
+    height: 50px;
+    width: 50px;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+.plus-img-con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(11, 18, 26, .61);
+    height: 50px;
+    width: 50px;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+.save-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(11, 18, 26, .61);
+
+    border-radius: 20px;
+        border-width: 3px;
+        width: 150px;
+        height: 50px;
+        border: 3px outset #BD3944;
+        margin-top: 30px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 23px;
+        text-align: center;
+        color: #ECE8E1;
+        text-decoration: none;
+        cursor: pointer;
+}
+.playmode-div{
+    display: flex;
+    flex-direction: row;
+    background: transparent;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    margin-top: 10px;
+}
+#user-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    width: 30px;
+
+}
+.user-img-div{
+    cursor:pointer;
+    background: rgba(11, 18, 26, .61);
+    border-radius: 20px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-img-div:hover{
+    background: rgba(11, 18, 26, .31);
+}
+#users-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    width: 30px;
+
+}
+#twitch-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    width: 28px;
+    cursor:not-allowed;
+
+}
+
+@media screen and (max-width:1313px) {
+    .set-con{
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,430 @@
+.play-container{
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
+}
+.play-div{
+    margin-top: 50px;
+    width: 1310px;
+    height: 850px;
+    background: #162332;
+    border-radius: 20px;
+}
+.normal-container{
+    background-color: transparent;
+}
+.report-btn{
+    background: #BD3944;
+    border-radius: 20px;
+    width: 106px;
+    height: 34px;
+    margin-left: auto;
+    border-width: 0px;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    
+    color: #ECE8E1;
+}
+.count-round-div{
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.player-div{
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+.ranks-div{
+    display: flex;
+    background-color: #101924;
+    height: 180px;
+    border-radius: 20px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    
+}
+.guess-rank-num-div{
+    display: flex;
+    background-color: transparent;
+    justify-content: space-between;
+    width: 400px;
+    align-items: center;
+}
+.rank-nums{
+    background-color: transparent;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 80px;
+        text-align: center;
+        color: #ECE8E1;
+        cursor: pointer;
+        border-radius: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+}
+.rank-num-div1{
+    background-color: transparent;
+    width: 100px;
+    border-radius: 20px;
+}
+.rank-nums:hover {
+    background-color: #162332;
+}
+.rank-num-div2{
+    background-color: transparent;
+    width: 100px;
+}
+.rank-num-div3 {
+    width: 100px;
+    background-color: transparent;
+}
+.vid{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    /* background-color: transparent; */
+    width: 1076px;
+    height: 605px;
+    border-width: 0px;
+    border-radius: 20px;
+}
+.score{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 60px;
+    background-color: transparent;
+    color: #ECE8E1;
+}
+
+
+.round{
+    font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 30px;
+        line-height: 60px;
+        background-color: transparent;
+        color: #BD3944;
+        margin-right: 20px;
+}
+#rankImgA{
+    margin-left: auto;
+    margin: auto;
+    width: 140px;
+    height: 140px;
+    background-color: transparent;
+    cursor:pointer;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+#rankImgA:hover{
+    background-color: #162332;
+
+}
+
+.rank-guess-val{
+    background-color: transparent;
+    display: flex;
+
+    height: 160px;
+    border-radius: 20px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.radiant{
+    margin-left: auto;
+        margin: auto;
+        width: 90px;
+        height: 90px;
+        background-color: transparent;
+        cursor: pointer;
+        border-radius: 20px;
+        margin-right: 25px;
+        margin-left: 10px;
+    
+}
+.guessed-div{
+    display: flex;
+    position: fixed;
+    min-width: 400px;
+    min-height: 400px;
+    background: #162332;
+    border-radius: 20px;
+    align-items: center;
+    margin-top: 220px;
+    flex-direction: column;
+}
+.rank-name-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 30px;
+    background: rgba(16, 25, 36, 0.67);
+    height: 150px;
+    min-width: 150px;
+    border-radius: 20px;
+}
+.popup-img{
+    margin-top: 20px;
+    height: 100px;
+    width: 100px;
+    background-color: transparent;
+}
+.rank-back{
+    border-radius: 20px;
+        border-width: 3px;
+        width: 120px;
+        height: 40px;
+        border: 4px outset #BD3944;
+
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        text-align: center;
+        color: #ECE8E1;
+        text-decoration: none;
+
+        cursor: pointer;
+}
+.img-rank-back {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    width: 70px;
+    height: 70px;
+
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.img-rank-back:hover {
+    background-color: #162332;
+    border-radius: 10px;
+}
+.name{
+    background-color: transparent;
+    color: #ECE8E1;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    margin-bottom: 23px;
+}
+.points{
+    margin-top: 10px;
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 900;
+    font-size: 50px;
+    color: #ECE8E1;
+    background-color: transparent;
+}
+.button-diva{
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.tracker-btn{
+    width: 120px;
+    height: 40px;
+    left: 180px;
+    top: 425px;
+    background-color: transparent;
+    border-color: #BD3944;
+    border-radius: 20px;
+    border-width: 4px;
+    margin-left: 50px;
+    font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        text-align: center;
+    
+        color: #ECE8E1;
+}
+.next-btn{
+    width: 120px;
+    height: 40px;
+    left: 180px;
+    top: 425px;
+    background-color: transparent;
+    border-color: #BD3944;
+    border-radius: 20px;
+    border-width: 4px;
+    margin-right: 50px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    color: #ECE8E1;
+}
+.link-a{
+    background-color: transparent;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: #ECE8E1;
+    text-decoration: none;
+}
+.finished-div{
+    display: flex;
+    position: fixed;
+    min-width: 400px;
+    min-height: 350px;
+    background: #162332;
+    border-radius: 20px;
+    align-items: center;
+        margin-top: 250px;
+    flex-direction: column;
+}
+.smiley{
+    margin-top: 30px;
+    width: 150px;
+    background-color: transparent;
+}
+.final-score{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+    color: #ECE8E1;
+    background-color: transparent;
+}
+
+.finish-close {
+    border-radius: 20px;
+    border-width: 3px;
+    width: 120px;
+    height: 40px;
+    border: 4px outset #BD3944;
+    margin-top: 30px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: #ECE8E1;
+    text-decoration: none;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.back-link{
+    background-color: transparent;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: #ECE8E1;
+    text-decoration: none;
+}
+.not-en{
+    display: flex;
+    position: fixed;
+    min-width: 400px;
+    min-height: 350px;
+    background: #162332;
+    border-radius: 20px;
+    align-items: center;
+    margin-top: 250px;
+    flex-direction: column;
+    justify-content: center;
+}
+.not-en-txt{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    color: #ECE8E1;
+    text-decoration: none;
+    background-color: transparent;
+}
+.not-smile{
+    padding-bottom: 20px;
+    background-color: transparent;
+    width: 150px;
+}
+.not-en-txt2{
+    font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        text-align: center;
+        color: #ECE8E1;
+        text-decoration: none;
+        background-color: transparent;
+}
+.player-guess-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    width: 300px;
+    margin: 30px 30px 0px 30px;
+}
+.player1-guess-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(16, 25, 36, 0.67);
+    border-radius: 20px;
+    padding: 10px;
+    flex-direction: column;
+}
+.player1-guess{
+    background-color: transparent;
+    font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        text-align: center;
+        color: #ECE8E1;
+        text-decoration: none;
+        background-color: transparent;
+}
+.player1-guess-img{
+    background-color: transparent;
+    width: 50px;
+}
+.player2-guess-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(16, 25, 36, 0.67);
+    border-radius: 20px;
+    padding: 10px;
+    flex-direction: column;
+}
+.player2-guess{
+    background-color: transparent;
+    font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        text-align: center;
+        color: #ECE8E1;
+        text-decoration: none;
+        background-color: transparent;
+}
+.player2-guess-img{
+    background-color: transparent;
+    width: 50px;
+}

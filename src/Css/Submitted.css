@@ -1,0 +1,42 @@
+
+.popup-div{
+    display: flex;
+    max-width: 400px;
+    max-height: 300px;
+    background: #162332;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    margin-top: 300px;
+    flex-direction: column;
+    
+}
+.submitted-txt{
+
+        font-family: 'Poppins';
+        font-style: italic;
+        font-weight: 900;
+        font-size: 40px;
+        line-height: 96px;
+        background-color: transparent;
+    
+        color: #ECE8E1;
+}
+.check-img{
+    margin-top: 30px;
+    background-color: transparent;
+    
+}
+.close-btn{
+    
+    border-radius: 5px;
+    border-width: 0px;
+    background-color: transparent;
+    margin-top: 10px;
+    align-items: center;
+}
+.close-img{
+    background-color: #0B121A;
+    border-radius: 5px;
+}
