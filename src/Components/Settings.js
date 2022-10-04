@@ -8,9 +8,12 @@ import userImg from "../Images/user.svg"
 import usersImg from "../Images/users.svg"
 import twitchLogo from "../Images/twitch-logo.png"
 import rax from "../Images/d0149438-17c1-427b-951a-6b083022e2cd-profile_image-300x300 (3)-modified.png"
+import center from "../Images/center.svg"
+import right from "../Images/right.svg"
 export default function Settings(){
     let [rounds,setRounds] = useState(20);
     let [gameMode, setGameMode] = useState();
+    let [windowMode, setWindowMode] = useState();
     const handleMinus = () =>{
         if(rounds>2){
             setRounds(prevRounds => rounds-=1)
@@ -22,6 +25,7 @@ export default function Settings(){
     const handleSave = () =>{
         localStorage.setItem("settings",rounds)
         localStorage.setItem("mode",gameMode)
+        localStorage.setItem("window",windowMode)
     }
     const handleGameMode = (mode) =>{
         document.getElementById("normal-mode").style.backgroundColor = "rgba(11, 18, 26, .61)";
@@ -38,6 +42,22 @@ export default function Settings(){
                 break;
             case "twitch-mode": 
                 setGameMode("twitch-mode")   
+                break;
+            default:
+                break;
+        }
+    }
+    const handleWindowMode = (mode) =>{
+        document.getElementById("mid-mode").style.backgroundColor = "rgba(11, 18, 26, .61)";
+        document.getElementById("right-mode").style.backgroundColor = "rgba(11, 18, 26, .61)";
+        document.getElementById(mode).style.background = "rgba(189, 57, 68, 0.51)";
+        
+        switch (mode) {
+            case "mid-mode": 
+                setWindowMode("mid-mode")   
+                break;
+            case "right-mode": 
+                setWindowMode("right-mode")   
                 break;
             default:
                 break;
@@ -70,7 +90,16 @@ export default function Settings(){
                 <div id="twitch-mode"  className="user-img-div">
                 <img id="twitch-logo" src={twitchLogo}></img>
                 </div>
-            </div>           
+            </div> 
+            <label  className="round-label" >Fenster:</label>
+            <div className="window-mode-div">
+                <div id="mid-mode" className="window-mode-img-div" onClick={()=>{handleWindowMode("mid-mode")}}>
+                    <img src={center} className="center-img"></img>
+                </div>
+                <div id="right-mode" className="window-mode-img-div" onClick={()=>{handleWindowMode("right-mode")}}>
+                    <img src={right} className="right-img"></img>
+                </div>
+            </div>         
             <Link onClick={handleSave} className="save-btn" to={"/"}>Speichern</Link>
             </div>
             <div className="logos-div">

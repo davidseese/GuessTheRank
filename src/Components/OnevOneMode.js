@@ -47,15 +47,29 @@ const { collection,getFirestore,getDocs,deleteDoc, doc } = require('@firebase/fi
 const clipsUsed = []
 const clipsId = []
 const db = getFirestore(app);
-const clipRef = collection(db,"backup");
+const clipRef = collection(db,"clips");
 var guessedRankP1 = 0
 var guessedRankP2 = 0
 var division1 = 0
 var division2 = 0
 export default function OnevOneMode(){
     var rounds = 20
+    var pos = "none"
+    var otherPos = "px"
+    var marg = "px"
     if(localStorage.getItem("settings")){
         rounds = localStorage.getItem("settings")
+    }
+    if(localStorage.getItem("window")){
+        if(localStorage.getItem("window") === "mid-mode"){
+            pos = "none"
+            otherPos = "px"
+            marg = "px"
+        }else{
+            pos = "fixed"
+            otherPos = "470px"
+            marg = "850px"
+        }
     }
     var [round,setRound] = useState(1);
     var [scoreP1,setScoreP1] = useState(0);
@@ -118,18 +132,34 @@ export default function OnevOneMode(){
 
     const togglePopup=async () =>{
         setPopup(false)
-        if(popup===true){
-            let temp = clipsUsed.pop()
-            await delay(100)
-            setLink(temp.link)
-            setTracker(temp.tracker)
-            setName(temp.name)
-            setRank(temp.rank)
-            await deleteDoc(doc(db,"clips",clipsId.pop()));
+        if(round==rounds){
+            if(scoreP1>scoreP2){
+                setWinner("Spieler 1 gewinnt!")
+            }
+            else{
+                setWinner("Spieler 2 gewinnt!")
+            }
+            if(scoreP1>60*(rounds*2)/100){
+                setSmile(smile1)
+            }else if(scoreP1>30*(rounds*2)/100){
+                setSmile(smile2)
+            }else{
+                setSmile(smile3)
+            }
+            setFinished(true);
+        }else{
+            if(popup===true){
+                let temp = clipsUsed.pop()
+                await delay(100)
+                setLink(temp.link)
+                setTracker(temp.tracker)
+                setName(temp.name)
+                setRank(temp.rank)
+                await deleteDoc(doc(db,"clips",clipsId.pop()));
 
-            setRound(prevRound => round+=1)
+                setRound(prevRound => round+=1)
+            }
         }
-
     }
     
 
@@ -590,22 +620,7 @@ export default function OnevOneMode(){
             setP2Points("+0")
 
         }
-        if(round==rounds){
-            if(scoreP1>scoreP2){
-                setWinner("Spieler 1 gewinnt!")
-            }
-            else{
-                setWinner("Spieler 2 gewinnt!")
-            }
-            if(scoreP1>60*(rounds*2)/100){
-                setSmile(smile1)
-            }else if(scoreP1>30*(rounds*2)/100){
-                setSmile(smile2)
-            }else{
-                setSmile(smile3)
-            }
-            setFinished(true);
-        }
+
         setPlayerTurn(false)
 
         setRankGuessVal(true);
@@ -616,7 +631,7 @@ export default function OnevOneMode(){
         <div className="play-container">
             <div className="normal-container">
             {/* <button className="report-btn"> Report</button> */}
-            <div className="play-div">
+            <div style={{position: pos}} className="play-div">
                 <div className="count-round-div">
                     <h3 className="score">Spieler 1: {scoreP1}</h3>
                     
@@ -661,7 +676,7 @@ export default function OnevOneMode(){
             </div>
             
             {popup &&(
-                <div className='guessed-div'>
+                <div style={{right: otherPos,marginTop:marg}} className='guessed-div'>
                 <div className='rank-name-div'>
                     <img alt="Guessed Rank" className="popup-img" src={guessedImg}></img>
                     <h3 className="name">{name}</h3>
@@ -671,16 +686,16 @@ export default function OnevOneMode(){
                     <div className="player1-guess-div">
                         <h3 className="player1-guess">Spieler 1</h3>
                         <img className="player1-guess-img" src={player1Img}></img>
-                        <h3 className="points">{p1points}</h3>
+                        <h3 style={{marginTop:"0px"}} className="points">{p1points}</h3>
 
                     </div>
                     <div className="player2-guess-div">
                         <h3 className="player2-guess"> Spieler 2</h3>
                         <img className="player2-guess-img" src={player2Img}></img>
-                        <h3 className="points">{p2points}</h3>
+                        <h3 style={{marginTop:"0px"}} className="points">{p2points}</h3>
                     </div>
                 </div>
-                <div className='button-diva'>
+                <div style={{marginTop:"20px",paddingBottom:"20px"}} className='button-diva'>
                     <button className='tracker-btn'>
                         <a className="link-a" href={tracker} target="_blank">Tracker</a>
                     </button>
@@ -689,16 +704,16 @@ export default function OnevOneMode(){
             </div>
             )}
             {finished &&(
-                <div className="finished-div">
+                <div style={{right: otherPos,marginTop:marg}} className="finished-div">
                 <img alt="Smiley" className="smiley" src={smile1}></img>
-                <h3 className="final-score">{winner} Spieler 2 gewinnt!</h3>
+                <h3 className="final-score">{winner}</h3>
                 <a className="finish-close" onClick={() => {window.location.href="/"}}>
                             Zurück
                         </a>
             </div>
             )}
             {notEnough &&(
-                <div className="not-en">
+                <div style={{right: otherPos,marginTop:marg}} className="not-en">
                     <img alt="Smiley" className="not-smile" src={smile3}></img>
                     <h3 className="not-en-txt">Nicht genug Clips:(</h3>
                     <h3 className="not-en-txt2">{clipsUsed.length} Clips übrig!</h3>

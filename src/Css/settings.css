@@ -11,7 +11,7 @@
 
     flex-direction: column;
     width: 400px;
-    height: 470px;
+    height: 600px;
     background-color: #162332;
     border-radius: 20px;
 }
@@ -121,6 +121,7 @@
     justify-content: space-between;
     width: 200px;
     margin-top: 10px;
+    padding-bottom: 30px;
 }
 #user-img{
     display: flex;
@@ -149,7 +150,6 @@
     justify-content: center;
     background: transparent;
     width: 30px;
-
 }
 #twitch-logo{
     display: flex;
@@ -160,7 +160,42 @@
     cursor:not-allowed;
 
 }
-
+.window-mode-div{
+    display: flex;
+    flex-direction: row;
+    background: transparent;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    margin-top: 10px;
+}
+.window-mode-img-div {
+    cursor: pointer;
+    background: rgba(11, 18, 26, .61);
+    border-radius: 20px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.window-mode-img-div:hover {
+    background: rgba(11, 18, 26, .31);
+}
+.center-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    width: 30px;
+}
+.right-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    width: 30px;
+}
 @media screen and (max-width:1313px) {
     .set-con{
         display: flex;

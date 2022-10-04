@@ -47,13 +47,27 @@ const { collection,getFirestore,getDocs,deleteDoc, doc } = require('@firebase/fi
 const clipsUsed = []
 const clipsId = []
 const db = getFirestore(app);
-const clipRef = collection(db,"backup");
+const clipRef = collection(db,"clips");
 var guessedRank = 0
 var division = 0
 export default function NormalMode(){
     var rounds = 20
+    var pos = "none"
+    var otherPos = "px"
+    var marg = "px"
     if(localStorage.getItem("settings")){
         rounds = localStorage.getItem("settings")
+    }
+    if(localStorage.getItem("window")){
+        if(localStorage.getItem("window") === "mid-mode"){
+            pos = "none"
+            otherPos = "px"
+            marg = "px"
+        }else{
+            pos = "fixed"
+            otherPos = "470px"
+            marg = "850px"
+        }
     }
     var [round,setRound] = useState(1);
     var [score,setScore] = useState(0);
@@ -97,7 +111,7 @@ export default function NormalMode(){
             setTracker(temp.tracker)
             setName(temp.name)
             setRank(temp.rank)
-            await deleteDoc(doc(db,"backup",clipsId.pop()));
+            await deleteDoc(doc(db,"clips",clipsId.pop()));
         }
         
     },[])
@@ -108,16 +122,27 @@ export default function NormalMode(){
 
     const togglePopup=async () =>{
         setPopup(false)
-        if(popup===true){
+        if(round==rounds){
+            if(score>60*(rounds*2)/100){
+                setSmile(smile1)
+            }else if(score>30*(rounds*2)/100){
+                setSmile(smile2)
+            }else{
+                setSmile(smile3)
+            }
+            setFinished(true);
+        }else{
+            if(popup===true){
             let temp = clipsUsed.pop()
             await delay(100)
             setLink(temp.link)
             setTracker(temp.tracker)
             setName(temp.name)
             setRank(temp.rank)
-            // await deleteDoc(doc(db,"clips",clipsId.pop()));
+            await deleteDoc(doc(db,"clips",clipsId.pop()));
 
             setRound(prevRound => round+=1)
+        }
         }
 
     }
@@ -302,16 +327,6 @@ export default function NormalMode(){
         else{
             setPointsAdd("+0 Punkte")
         }
-        if(round==rounds){
-            if(score>60*(rounds*2)/100){
-                setSmile(smile1)
-            }else if(score>30*(rounds*2)/100){
-                setSmile(smile2)
-            }else{
-                setSmile(smile3)
-            }
-            setFinished(true);
-        }
         setRankGuessVal(true);
         setPopup(true);
    }
@@ -320,7 +335,7 @@ export default function NormalMode(){
         <div className="play-container">
             <div className="normal-container">
             {/* <button className="report-btn"> Report</button> */}
-            <div className="play-div">
+            <div style={{position: pos}} className="play-div">
                 <div className="count-round-div">
                     <h3 className="score">PUNKTE: {score}</h3>
                     <h3 className="round">{round}/{rounds}</h3>
@@ -363,7 +378,7 @@ export default function NormalMode(){
             </div>
             
             {popup &&(
-                <div className='guessed-div'>
+                <div style={{right: otherPos,marginTop:marg}} className='guessed-div'>
                 <div className='rank-name-div'>
                     <img alt="Guessed Rank" className="popup-img" src={guessedImg}></img>
                     <h3 className="name">{name}</h3>
@@ -378,7 +393,7 @@ export default function NormalMode(){
             </div>
             )}
             {finished &&(
-                <div className="finished-div">
+                <div style={{right: otherPos,marginTop:marg}} className="finished-div">
                 <img alt="Smiley" className="smiley" src={smile}></img>
                 <h3 className="final-score">{score} Punkte erreicht</h3>
                 <a className="finish-close" onClick={() => {window.location.href="/"}}>
@@ -387,7 +402,7 @@ export default function NormalMode(){
             </div>
             )}
             {notEnough &&(
-                <div className="not-en">
+                <div style={{right: otherPos,marginTop:marg}} className="not-en">
                     <img alt="Smiley" className="not-smile" src={smile3}></img>
                     <h3 className="not-en-txt">Nicht genug Clips:(</h3>
                     <h3 className="not-en-txt2">{clipsUsed.length} Clips übrig!</h3>
